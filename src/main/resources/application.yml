@@ -8,7 +8,7 @@ spring:
         # kafka
         processing.guarantee: exactly_once_v2
     properties:
-     # schema registry
+      # schema registry
       schema.registry.url: ${SCHEMA_REGISTRY_URL}
       schema.registry.basic.auth.credentials.source: USER_INFO
       schema.registry.basic.auth.user.info: "${SCHEMA_REGISTRY_USERNAME}:${SCHEMA_REGISTRY_PASSWORD}"
