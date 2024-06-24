@@ -1,0 +1,19 @@
+spring:
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVER}
+    streams:
+      application-id: kafka-streams-demo
+      auto.offset.reset: earliest
+      properties:
+        # kafka
+        processing.guarantee: exactly_once_v2
+    properties:
+     # schema registry
+      schema.registry.url: ${SCHEMA_REGISTRY_URL}
+      schema.registry.basic.auth.credentials.source: USER_INFO
+      schema.registry.basic.auth.user.info: "${SCHEMA_REGISTRY_USERNAME}:${SCHEMA_REGISTRY_PASSWORD}"
+      # kafka auth
+      sasl.mechanism: PLAIN
+      sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username='${KAFKA_USERNAME}' password='${KAFKA_PASSWORD}';
+      security.protocol: SASL_SSL
+        

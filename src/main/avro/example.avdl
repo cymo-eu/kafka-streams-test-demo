@@ -1,0 +1,13 @@
+@namespace("eu.cymo.kafka_streams.demo")
+protocol Event {
+
+	record OrderCreated {
+		string orderId;
+		string customerId;
+		union { 
+			null,
+			string
+		} resellerId = null;
+	}
+
+}
