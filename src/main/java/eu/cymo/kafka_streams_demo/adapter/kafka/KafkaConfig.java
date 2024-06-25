@@ -16,7 +16,7 @@ import org.springframework.kafka.config.KafkaStreamsConfiguration;
 @EnableKafkaStreams
 public class KafkaConfig {
 
-    @Bean(name = KafkaStreamsDefaultConfiguration.DEFAULT_STREAMS_CONFIG_BEAN_NAME)
+    @Bean(KafkaStreamsDefaultConfiguration.DEFAULT_STREAMS_CONFIG_BEAN_NAME)
     public KafkaStreamsConfiguration kStreamsConfig(
             KafkaProperties kafkaProperties,
             ObjectProvider<SslBundles> sslBundles) {
