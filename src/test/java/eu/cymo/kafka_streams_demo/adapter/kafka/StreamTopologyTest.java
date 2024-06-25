@@ -22,7 +22,7 @@ import eu.cymo.kafka_streams_demo.adapter.kafka.topology.TopologyTest;
 class StreamTopologyTest {
     @Autowired
     private AvroSerdeFactory avroSerdes;
-
+    
     @Autowired
     private TopologyTestDriver driver;
 

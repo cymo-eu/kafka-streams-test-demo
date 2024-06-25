@@ -18,8 +18,8 @@
 	
 	<properties>
 		<java.version>22</java.version>
-		<confluent.version>7.5.1</confluent.version>
-		<avro.version>1.10.2</avro.version>
+		<confluent.version>7.6.0</confluent.version>
+		<avro.version>1.11.3</avro.version>
 	</properties>
 	
 	<dependencies>

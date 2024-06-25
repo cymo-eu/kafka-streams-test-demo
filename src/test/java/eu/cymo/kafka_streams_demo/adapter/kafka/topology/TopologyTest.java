@@ -7,17 +7,17 @@ import java.lang.annotation.Target;
 
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.autoconfigure.filter.TypeExcludeFilters;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.BootstrapWith;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @ExtendWith(SpringExtension.class)
+@SpringBootTest
 @TypeExcludeFilters(TopologyTypeExcludeFilter.class)
-@BootstrapWith(TopologyTestContextBootstrapper.class)
 @Import(value = { 
         TopologyTestDriverConfiguration.class, MockAvroSerdeFactory.class })
 @ActiveProfiles(value = { "test" })
@@ -26,7 +26,5 @@ public @interface TopologyTest {
     ComponentScan.Filter[] includeFilters() default {};
     
     ComponentScan.Filter[] excludeFilters() default {};
-
-    String[] properties() default {};
 
 }
