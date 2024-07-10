@@ -2,3 +2,24 @@ spring:
   main:
     banner-mode: off
     log-startup-info: false
+  kafka:
+    consumer:
+      group-id: test-consumer
+      auto-offset-reset: earliest
+    properties: {}
+
+test:
+  topics:
+    - name: orders
+      partition: 3
+    - name: reseller_orders_count
+      partition: 3
+
+logging:
+  level:
+    org.apache.kafka.streams: error
+    org.apache.kafka.clients.admin: error
+    org.apache.kafka.clients.consumer: error
+    org.apache.kafka.clients.producer: error
+    io.confluent.kafka.serializers: error
+

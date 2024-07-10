@@ -1,4 +1,4 @@
-package eu.cymo.kafka_streams_demo.adapter.kafka.topology;
+package eu.cymo.kafka_streams_demo.adapter.slice.kafka.topology;
 
 import java.io.IOException;
 import java.util.Arrays;
