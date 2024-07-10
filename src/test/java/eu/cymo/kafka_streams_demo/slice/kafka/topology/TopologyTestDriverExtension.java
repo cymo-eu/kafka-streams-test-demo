@@ -1,4 +1,4 @@
-package eu.cymo.kafka_streams_demo.adapter.slice.kafka.topology;
+package eu.cymo.kafka_streams_demo.slice.kafka.topology;
 
 import java.util.Properties;
 
@@ -17,10 +17,10 @@ import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.boot.ssl.SslBundles;
 import org.springframework.kafka.config.KafkaStreamsInfrastructureCustomizer;
 
-import eu.cymo.kafka_streams_demo.extension.Contexts;
-import eu.cymo.kafka_streams_demo.extension.FieldParameter;
-import eu.cymo.kafka_streams_demo.extension.ParameterContextParameter;
-import eu.cymo.kafka_streams_demo.extension.TestParameter;
+import eu.cymo.kafka_streams_demo.utils.Contexts;
+import eu.cymo.kafka_streams_demo.utils.FieldParameter;
+import eu.cymo.kafka_streams_demo.utils.ParameterContextParameter;
+import eu.cymo.kafka_streams_demo.utils.TestParameter;
 
 public class TopologyTestDriverExtension implements ParameterResolver, TestInstancePostProcessor, AfterEachCallback {
 	private Logger log = LoggerFactory.getLogger(TopologyTestDriverExtension.class);

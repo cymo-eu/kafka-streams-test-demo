@@ -1,4 +1,4 @@
-package eu.cymo.kafka_streams_demo.adapter.slice.kafka;
+package eu.cymo.kafka_streams_demo.slice.kafka;
 
 import java.util.HashMap;
 import java.util.Map;

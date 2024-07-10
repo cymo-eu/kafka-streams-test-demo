@@ -1,4 +1,4 @@
-package eu.cymo.kafka_streams_demo.adapter.slice.kafka.topology;
+package eu.cymo.kafka_streams_demo.slice.kafka.topology;
 
 import org.apache.kafka.common.serialization.Serde;
 import org.apache.kafka.streams.TestInputTopic;
@@ -10,11 +10,11 @@ import org.junit.jupiter.api.extension.ParameterResolutionException;
 import org.junit.jupiter.api.extension.ParameterResolver;
 import org.junit.jupiter.api.extension.TestInstancePostProcessor;
 
-import eu.cymo.kafka_streams_demo.extension.Contexts;
-import eu.cymo.kafka_streams_demo.extension.FieldParameter;
-import eu.cymo.kafka_streams_demo.extension.ParameterContextParameter;
-import eu.cymo.kafka_streams_demo.extension.ParameterSerdes;
-import eu.cymo.kafka_streams_demo.extension.TestParameter;
+import eu.cymo.kafka_streams_demo.utils.Contexts;
+import eu.cymo.kafka_streams_demo.utils.FieldParameter;
+import eu.cymo.kafka_streams_demo.utils.ParameterContextParameter;
+import eu.cymo.kafka_streams_demo.utils.ParameterSerdes;
+import eu.cymo.kafka_streams_demo.utils.TestParameter;
 
 public class TestTopicExtension implements ParameterResolver, TestInstancePostProcessor {
 

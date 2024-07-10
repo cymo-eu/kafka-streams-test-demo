@@ -1,4 +1,4 @@
-package eu.cymo.kafka_streams_demo.extension;
+package eu.cymo.kafka_streams_demo.utils;
 
 import java.util.Optional;
 

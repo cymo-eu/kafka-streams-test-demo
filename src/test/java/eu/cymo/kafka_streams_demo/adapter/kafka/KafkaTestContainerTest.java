@@ -10,9 +10,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.context.annotation.ComponentScan;
 
 import eu.cymo.kafka_streams.demo.OrderCreated;
-import eu.cymo.kafka_streams_demo.adapter.slice.kafka.container.TestConsumer;
-import eu.cymo.kafka_streams_demo.adapter.slice.kafka.container.ConsumerAssert;
-import eu.cymo.kafka_streams_demo.adapter.slice.kafka.container.KafkaContainerTest;
+import eu.cymo.kafka_streams_demo.slice.kafka.container.ConsumerAssert;
+import eu.cymo.kafka_streams_demo.slice.kafka.container.KafkaContainerTest;
+import eu.cymo.kafka_streams_demo.slice.kafka.container.TestConsumer;
 
 @KafkaContainerTest(
         includeFilters = { 

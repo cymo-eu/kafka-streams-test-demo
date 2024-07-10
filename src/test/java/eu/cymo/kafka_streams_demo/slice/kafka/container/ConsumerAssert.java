@@ -1,4 +1,4 @@
-package eu.cymo.kafka_streams_demo.adapter.slice.kafka.container;
+package eu.cymo.kafka_streams_demo.slice.kafka.container;
 
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;

@@ -1,4 +1,4 @@
-package eu.cymo.kafka_streams_demo.adapter.slice.kafka.container;
+package eu.cymo.kafka_streams_demo.slice.kafka.topology;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -12,22 +12,20 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.BootstrapWith;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import eu.cymo.kafka_streams_demo.adapter.slice.kafka.MockAvroSerdeFactory;
+import eu.cymo.kafka_streams_demo.slice.kafka.MockAvroSerdeFactory;
 
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @ExtendWith({
-	SpringExtension.class, ProducerExtension.class, ConsumerExtension.class })
+	SpringExtension.class, TopologyTestDriverExtension.class, TestTopicExtension.class })
 @BootstrapWith(SpringBootTestContextBootstrapper.class)
-@TypeExcludeFilters(KafkaContainerTestExcludeFilter.class)
-@ContextConfiguration(initializers = { KafkaContainerInitializer.class })
+@TypeExcludeFilters(TopologyTypeExcludeFilter.class)
 @Import({ 
-	MockAvroSerdeFactory.class, TopicInitializer.class })
+    StreamsBuilderConfiguration.class, MockAvroSerdeFactory.class })
 @ActiveProfiles("test")
-public @interface KafkaContainerTest {
+public @interface TopologyTest {
 
     ComponentScan.Filter[] includeFilters() default {};
     

@@ -1,4 +1,4 @@
-package eu.cymo.kafka_streams_demo.adapter.slice.kafka.topology;
+package eu.cymo.kafka_streams_demo.slice.kafka.topology;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

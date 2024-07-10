@@ -1,4 +1,4 @@
-package eu.cymo.kafka_streams_demo.adapter.slice.kafka.container;
+package eu.cymo.kafka_streams_demo.slice.kafka.container;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,11 +14,11 @@ import org.junit.jupiter.api.extension.TestInstancePostProcessor;
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.boot.ssl.SslBundles;
 
-import eu.cymo.kafka_streams_demo.extension.Contexts;
-import eu.cymo.kafka_streams_demo.extension.FieldParameter;
-import eu.cymo.kafka_streams_demo.extension.ParameterContextParameter;
-import eu.cymo.kafka_streams_demo.extension.ParameterSerdes;
-import eu.cymo.kafka_streams_demo.extension.TestParameter;
+import eu.cymo.kafka_streams_demo.utils.Contexts;
+import eu.cymo.kafka_streams_demo.utils.FieldParameter;
+import eu.cymo.kafka_streams_demo.utils.ParameterContextParameter;
+import eu.cymo.kafka_streams_demo.utils.ParameterSerdes;
+import eu.cymo.kafka_streams_demo.utils.TestParameter;
 
 public class ProducerExtension implements ParameterResolver, TestInstancePostProcessor, AfterEachCallback {
 	private static final String PRODUCERS = "producers";

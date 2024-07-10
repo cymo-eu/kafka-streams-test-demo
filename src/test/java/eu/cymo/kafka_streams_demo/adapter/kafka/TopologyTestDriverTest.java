@@ -10,8 +10,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.context.annotation.ComponentScan;
 
 import eu.cymo.kafka_streams.demo.OrderCreated;
-import eu.cymo.kafka_streams_demo.adapter.slice.kafka.topology.TestTopic;
-import eu.cymo.kafka_streams_demo.adapter.slice.kafka.topology.TopologyTest;
+import eu.cymo.kafka_streams_demo.slice.kafka.topology.TestTopic;
+import eu.cymo.kafka_streams_demo.slice.kafka.topology.TopologyTest;
 
 @TopologyTest(
         includeFilters = { 
