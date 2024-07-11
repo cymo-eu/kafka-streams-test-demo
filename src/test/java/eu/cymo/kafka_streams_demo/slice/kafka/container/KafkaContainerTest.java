@@ -7,7 +7,6 @@ import java.lang.annotation.Target;
 
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.autoconfigure.filter.TypeExcludeFilters;
-import org.springframework.boot.test.context.SpringBootTestContextBootstrapper;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
@@ -21,7 +20,7 @@ import eu.cymo.kafka_streams_demo.slice.kafka.MockAvroSerdeFactory;
 @Retention(RetentionPolicy.RUNTIME)
 @ExtendWith({
 	SpringExtension.class, ProducerExtension.class, ConsumerExtension.class })
-@BootstrapWith(SpringBootTestContextBootstrapper.class)
+@BootstrapWith(KafkaContainerTestContextBootstraper.class)
 @TypeExcludeFilters(KafkaContainerTestExcludeFilter.class)
 @ContextConfiguration(initializers = { KafkaContainerInitializer.class })
 @Import({ 
