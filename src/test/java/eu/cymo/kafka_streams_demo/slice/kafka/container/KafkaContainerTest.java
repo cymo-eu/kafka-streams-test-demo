@@ -12,14 +12,16 @@ import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.BootstrapWith;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import eu.cymo.kafka_streams_demo.slice.kafka.MockAvroSerdeFactory;
 
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@ExtendWith({
-	SpringExtension.class, ProducerExtension.class, ConsumerExtension.class })
+@ExtendWith(SpringExtension.class)
+@TestExecutionListeners({
+	ProducerTestExecutionListener.class, ConsumerTestExecutionListener.class })
 @BootstrapWith(KafkaContainerTestContextBootstraper.class)
 @TypeExcludeFilters(KafkaContainerTestExcludeFilter.class)
 @ContextConfiguration(initializers = { KafkaContainerInitializer.class })

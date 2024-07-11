@@ -21,7 +21,7 @@ class TopologyTestDriverTest {
     private TestInputTopic<String, OrderCreated> orders;
 	@TestTopic("reseller_orders_count") 
     private TestOutputTopic<String, Long> resellerOrdersCount;
-    
+	
     @Test
     void countsOrdersForResellers() {
         // given

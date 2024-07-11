@@ -12,15 +12,17 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.BootstrapWith;
+import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import eu.cymo.kafka_streams_demo.slice.kafka.MockAvroSerdeFactory;
 
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@ExtendWith({
-	SpringExtension.class, TopologyTestDriverExtension.class, TestTopicExtension.class })
+@ExtendWith(SpringExtension.class)
 @BootstrapWith(SpringBootTestContextBootstrapper.class)
+@TestExecutionListeners({
+	TopologyTestDriverTestExecutionListener.class, TestTopicTestExecutionListener.class })
 @TypeExcludeFilters(TopologyTypeExcludeFilter.class)
 @Import({ 
     StreamsBuilderConfiguration.class, MockAvroSerdeFactory.class })

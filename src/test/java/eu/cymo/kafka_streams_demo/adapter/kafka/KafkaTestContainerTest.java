@@ -28,7 +28,7 @@ public class KafkaTestContainerTest {
 	private String input = "orders";
 	
 	@Test
-	void sendIt() throws InterruptedException {
+	void countsOrdersForResellers() throws InterruptedException {
         var order1 = OrderCreated.newBuilder()
                                  .setOrderId("order-1")
                                  .setResellerId("reseller-1")
