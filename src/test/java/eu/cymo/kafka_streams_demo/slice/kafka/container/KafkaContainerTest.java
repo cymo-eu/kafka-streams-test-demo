@@ -33,4 +33,6 @@ public @interface KafkaContainerTest {
     
     ComponentScan.Filter[] excludeFilters() default {};
 
+	String[] properties() default {};
+
 }
