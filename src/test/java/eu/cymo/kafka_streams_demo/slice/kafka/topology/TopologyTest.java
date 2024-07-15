@@ -25,7 +25,7 @@ import eu.cymo.kafka_streams_demo.slice.kafka.MockAvroSerdeFactory;
 	TopologyTestDriverTestExecutionListener.class, TestTopicTestExecutionListener.class })
 @TypeExcludeFilters(TopologyTypeExcludeFilter.class)
 @Import({ 
-    StreamsBuilderConfiguration.class, MockAvroSerdeFactory.class })
+    TopologyConfiguration.class, MockAvroSerdeFactory.class })
 @ActiveProfiles("test")
 public @interface TopologyTest {
 
