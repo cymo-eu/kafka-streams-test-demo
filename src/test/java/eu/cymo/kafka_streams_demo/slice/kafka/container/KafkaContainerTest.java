@@ -13,6 +13,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.BootstrapWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestExecutionListeners;
+import org.springframework.test.context.TestExecutionListeners.MergeMode;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import eu.cymo.kafka_streams_demo.slice.kafka.MockAvroSerdeFactory;
@@ -20,8 +21,9 @@ import eu.cymo.kafka_streams_demo.slice.kafka.MockAvroSerdeFactory;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @ExtendWith(SpringExtension.class)
-@TestExecutionListeners({
-	ProducerTestExecutionListener.class, ConsumerTestExecutionListener.class })
+@TestExecutionListeners(
+		listeners = { ProducerTestExecutionListener.class, ConsumerTestExecutionListener.class },
+		mergeMode = MergeMode.MERGE_WITH_DEFAULTS)
 @BootstrapWith(KafkaContainerTestContextBootstraper.class)
 @TypeExcludeFilters(KafkaContainerTestExcludeFilter.class)
 @ContextConfiguration(initializers = { KafkaContainerInitializer.class })

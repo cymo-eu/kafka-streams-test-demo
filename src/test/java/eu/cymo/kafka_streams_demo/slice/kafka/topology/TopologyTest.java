@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.BootstrapWith;
 import org.springframework.test.context.TestExecutionListeners;
+import org.springframework.test.context.TestExecutionListeners.MergeMode;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import eu.cymo.kafka_streams_demo.slice.kafka.MockAvroSerdeFactory;
@@ -21,8 +22,9 @@ import eu.cymo.kafka_streams_demo.slice.kafka.MockAvroSerdeFactory;
 @Retention(RetentionPolicy.RUNTIME)
 @ExtendWith(SpringExtension.class)
 @BootstrapWith(SpringBootTestContextBootstrapper.class)
-@TestExecutionListeners({
-	TopologyTestDriverTestExecutionListener.class, TestTopicTestExecutionListener.class })
+@TestExecutionListeners(
+		listeners = { TopologyTestDriverTestExecutionListener.class, TestTopicTestExecutionListener.class },
+		mergeMode = MergeMode.MERGE_WITH_DEFAULTS)
 @TypeExcludeFilters(TopologyTypeExcludeFilter.class)
 @Import({ 
     TopologyConfiguration.class, MockAvroSerdeFactory.class })
