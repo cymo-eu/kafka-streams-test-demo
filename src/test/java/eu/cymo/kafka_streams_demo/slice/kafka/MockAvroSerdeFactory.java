@@ -32,7 +32,7 @@ public class MockAvroSerdeFactory implements AvroSerdeFactory {
         var properties = new HashMap<>(getProperties());
         properties.put(KafkaAvroDeserializerConfig.SPECIFIC_AVRO_READER_CONFIG, true);
         
-        var serde = new SpecificAvroSerde<T>();
+        var serde = new SpecificAvroSerde<T>(schemaRegistryClient);
         serde.configure(properties, isKey);
         return serde;
     }

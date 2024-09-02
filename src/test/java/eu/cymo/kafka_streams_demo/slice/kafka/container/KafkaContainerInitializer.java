@@ -8,7 +8,7 @@ import org.springframework.core.env.MapPropertySource;
 import org.testcontainers.containers.KafkaContainer;
 import org.testcontainers.utility.DockerImageName;
 
-public class KafkaContainerInitializer implements ApplicationContextInitializer<ConfigurableApplicationContext>{
+public class KafkaContainerInitializer implements ApplicationContextInitializer<ConfigurableApplicationContext> {
 
 	static final KafkaContainer KAFKA_CONTAINER;
 	

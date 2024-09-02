@@ -12,6 +12,7 @@ import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.boot.ssl.SslBundles;
+import org.springframework.core.env.Environment;
 import org.springframework.test.context.TestContext;
 import org.springframework.test.context.TestExecutionListener;
 
@@ -60,9 +61,17 @@ public class ConsumerTestExecutionListener implements TestExecutionListener {
 				config(field, testContext),
 				FieldSerdes.getSerde(field, serdeFactory(testContext), true).deserializer(),
 				FieldSerdes.getSerde(field, serdeFactory(testContext), false).deserializer());
-		consumer.subscribe(Collections.singletonList(field.getAnnotation(TestConsumer.class).topic()));
+		consumer.subscribe(Collections.singletonList(topic(field, testContext)));
 		
 		return registerConsumer(testContext, consumer);
+	}
+	
+	private String topic(Field field, TestContext testContext) {
+		var applicationContext = testContext.getApplicationContext();
+		
+		var environment = applicationContext.getBean(Environment.class);
+		
+		return environment.resolvePlaceholders(field.getAnnotation(TestConsumer.class).topic());
 	}
 	
 	private AvroSerdeFactory serdeFactory(TestContext testContext) {
